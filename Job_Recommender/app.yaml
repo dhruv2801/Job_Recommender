@@ -1,0 +1,19 @@
+runtime: python27
+api_version: 1
+threadsafe: false
+
+
+handlers:
+
+- url: /blog
+  script: app.py
+
+- url: /blog/new_entry
+  script: app.py 
+
+- url: /blog/archive/.*
+  script: app.py
+
+
+- url: .*
+  script: app.py

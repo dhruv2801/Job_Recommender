@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+
+<h2>Job Recommender for Data Analyst</h2>
+
+
+<div>
+    <form action = "#", id="upload-file" method="post" enctype="multipart/form-data" />
+        <label for="fileUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="fileUpload" accept=".docx, .pdf"/>
+		<div>
+          <button type="submit" class="btn btn-primary btn-lg " id="btn-predict">Suggest Jobs!</button>
+        </div>
+		<script>
+			$(document).ready(
+				function(){
+				  $('button:submit').attr('disabled',true);
+				  $('input:file').change(
+				function(){
+					if ($(this).val()){
+                      $('button:submit').removeAttr('disabled'); 
+                }
+					else {
+                      $('button:submit').attr('disabled',true);
+                  }
+              });
+          });
+	    </script>
+	</form>
+</div>
+
+{% endblock %}
